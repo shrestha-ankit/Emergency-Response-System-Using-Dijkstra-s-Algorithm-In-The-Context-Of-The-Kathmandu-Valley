@@ -147,7 +147,9 @@ async function getZoneType(eventLatitude, eventLongitude) {
 
 //initMap function
 async function initMap() {
+    console.time("timer")
     try {
+        
         // Fetch a random event
         const singleEvent = await getEvent();
         const eventOccurCoordinate = [singleEvent.Latitude, singleEvent.Longitude];
@@ -274,6 +276,7 @@ async function initMap() {
         handleErrorMessage("Error initializing map:", "Oh no! Something went wrong while initializing the map.");
         loaderOverlay.style.display = 'none';
     }
+    console.timeEnd("timer")
 }
 
 
